@@ -1,24 +1,31 @@
-# README
+JobWatch
+====
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Track jobs applied to 
 
-Things you may want to cover:
 
-* Ruby version
+#### ToDos
+- X Implement User signin, signout, register
+- Create Models with proper attributes
+- Create Forms for signend in user
+- Add Chartkick for charting response rates
+- Add rake task to email users to follow up on applications
 
-* System dependencies
 
-* Configuration
+# Model and associations: 
 
-* Database creation
+Users
+	has_many :applicaitons
 
-* Database initialization
+Application 
+	has_many :jobs, references jobs_id
 
-* How to run the test suite
+Jobs
+	has_many :applications
+	has_many :companies
 
-* Services (job queues, cache servers, search engines, etc.)
+company
+	has_many jobs, refernces jobs_id
 
-* Deployment instructions
-
-* ...
+recruiter
+	has_many jobs, refernces job_id
