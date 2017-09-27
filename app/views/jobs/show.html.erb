@@ -8,7 +8,8 @@
 	<p><%= @job.board_name %></p>
 	<p><%= @job.manager_name %></p>
 	<p><%= @job.contact_with_company %></p>
-	
+	<%= link_to 'Edit', edit_job_path(@job), class: 'btn btn-warning' %>
+	<%= link_to 'Delete', @job, method: :delete, data: {confirm: 'Are you sure you want to delete this job?'}, class: 'btn btn-danger' %>
 </div>
 
 <%= link_to 'Back', jobs_path %>

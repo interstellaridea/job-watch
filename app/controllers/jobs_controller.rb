@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  before_action :set_job, only: [:show, :edit, :update, :destroy]
 	def index
 		@jobs = Job.all
 	end
@@ -19,7 +20,22 @@ class JobsController < ApplicationController
   end
 
   def show
-  	@job = Job.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @job.update(job_params)
+      redirect_to jobs_path, notice: "You successfully updated '#{@job.title}'' job"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @job.destroy
+    redirect_to jobs_path, notice: "Job successfully removed from tracking"
   end
 
   private
@@ -34,5 +50,9 @@ class JobsController < ApplicationController
 				:manager_name,
 				:contact_with_company,)
   	end
+
+    def set_job
+      @job = Job.find(params[:id])
+    end
 
 end

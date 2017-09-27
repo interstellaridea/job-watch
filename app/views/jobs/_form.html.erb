@@ -1,0 +1,43 @@
+<div class="container">
+	<%= form_for(@job) do |job| %>
+	<div class="row">
+		<div class="form-group col-md-6">
+			<%= job.text_field :title, placeholder: 'Job title', class: 'form-control' %>
+		</div>
+
+		<div class="form-group col-md-6">
+			<%= job.text_field :contact_with_company, placeholder: 'Contact with Company', class: 'form-control' %>
+		</div>
+
+		<div class="form-group col-md-6">
+			<%= job.text_field :job_reference_id, placeholder: 'Reference ID', class: 'form-control' %>
+		</div>
+					
+
+		<div class="form-group col-md-6">
+			<%= job.text_field :manager_name, placeholder: 'Manager Name', class: 'form-control' %>
+		</div>
+
+		<div class="form-group col-md-6">
+			<%= job.text_field :city_locaiton, placeholder: 'City Location', class: 'form-control' %>
+		</div>
+
+		<div class="form-group col-md-6">
+			<%= job.text_field :board_name, placeholder: 'Board Name', class: 'form-control' %>
+		</div>
+
+		<div class="row col-md-12">
+			<div class="form-group col-md-8">
+				<%= job.collection_radio_buttons :level,  Job.levels, :first, :first, class: 'form-control' %>
+			</div>
+			<div class="form-group col-md-8">
+			<%= job.text_area :description, rows: 15, class: 'form-control' %>
+			</div>
+		</div>
+
+		<div class="form-group col-md-4">
+			<%= job.submit 'Save', class: 'btn btn-primary btn-block' %>
+		</div>
+	</div>
+	<% end %>
+</div>
