@@ -10,14 +10,10 @@
 
   <body>
     <div class="container">
-      <div>
-        <% alert = (flash[:notice] || flash[:error] || flash[:alert]) %>
-        <% if alert %>
-          <p><%= alert %></p>
-        <% end %>    
-      </div>
 
-      <div>
+      <%= render 'shared/alerts' %>   
+    
+
         <% if current_user %>
           <div>
             <p>welcome <%= current_user.first_name %></p>
@@ -27,8 +23,7 @@
           <div>
             <%= link_to 'Login', new_user_session_path %>
           </div>
-        <% end %>    
-      </div>    
+        <% end %>        
       
       <%= yield %>
     </div>

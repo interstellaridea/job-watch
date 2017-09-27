@@ -1,0 +1,4 @@
+<% alert = (flash[:notice] || flash[:error] || flash[:alert]) %>
+<% if alert %>
+  <p><%= alert %></p>
+<% end %> 
