@@ -1,4 +1,5 @@
 class StaticController < ApplicationController
+	skip_before_action :authenticate_user!, except: [:logged_in]
   def home
   end
 
