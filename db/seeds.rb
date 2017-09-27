@@ -11,32 +11,43 @@ User.create!(
 me = User.last
 puts "user #{me.first_name} created"
 
-# # add applicaiton & Link prospect to user
-# 5.times do |prospect|
-# 	Prospect.create!(
-# 		user_id: me.id,
-# 		date_applied: Date.today,
-# 		resume_version: '0.1' ,
-# 		cover_letter_version: '0.0.1',
-# 		status: 0,
-# 		response: false 
-# 	)
-# end
+10.times do |job|
+	Job.create!(
+		user_id: me.id,
+		title: "Test #{job}",
+		level: 1,
+		description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae delectus, animi ipsam quod quo. Est ducimus rerum impedit nobis officia, illo voluptas earum aliquid nihil delectus, eaque corrupti. Nulla architecto sapiente nihil deserunt tempore animi, odio tenetur. Sequi maiores quibusdam quia saepe ullam autem amet adipisci aliquam suscipit. Dolores, nam!',
+		job_reference_id: "#{job}-2345",
+		city_locaiton: 'San Mateo, CA',
+		board_name: 'TEST BOARD name',
+		manager_name: 'Some one',
+		contact_with_company: 'Jimmy'
+			)
+end
 
-# 5.times do |job|
-# 	Job.create!(
-# 			binding.pry
-# 		prospect: me.prospects["#{job}".to_i].id,
-# 		job_title:  "Job offer: #{job}",
-# 		evel: 0, # 0 jr
-# 		job_description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, similique.',
-# 		job_reference_id: '12345678' ,
-# 		job_city_locaiton: 'San Mateo, CA',
-# 		job_board_name: 'Hacker for Hire',
-# 		manager_name: 'Eddie Lee',
-# 		contact_with_company: '6 month',
-# 	)
-# end
+puts '10 Jobs created'
+
+job = Job.first
+
+Company.create!(
+	job_id: job.id,
+
+	hq_locaiton: 'san mateo', # string
+
+	industry: 'Software', #string
+
+	num_of_employees: 5000, # int
+
+	maturity: 2, # int 0 non-specified, 1 start-up , 2 public, 3 private
+
+	valuation: 1000000, #int default 0.0
+
+	logo_url: 'https://placehold.it/400x400', # text, make a Pictures table as imagble
+
+	website: 'https://placehold.it/400x400', # string
+
+	notes: 'this is a test note from a seed', # text
+)
 
 
 # # though process
