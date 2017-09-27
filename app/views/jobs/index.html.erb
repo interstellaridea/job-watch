@@ -1,19 +1,20 @@
 <h1>Jobs being tracked:</h1>
-	
-<% @jobs.each do |job| %>
-	<ul class="list-group">
-		<li class="list-group-item text-center">
-			<%= job.title %> | 
-			<small><%= time_ago_in_words(job.created_at) + ' ago' %></small> | 
-			<%= link_to "View job", job_path(job), class: 'btn btn-info' %>
-		</li>
-	</ul>
-<% end %>
-
-
-
-<div>
-	<p>Add a new Job to track:</p>
-	<small>By adding a job to track you are recording jobs youve applied to </small>
-	<%= link_to 'Add Job to track', new_job_path %>
+<div class="row">
+<%= link_to 'Add Job to track', new_job_path, class: 'btn btn-success btn-block' %>
+	<% @jobs.each do |job| %>
+		<div class="col-md-3 mx-auto job-cards">
+			<div class="card">
+				<div class="card-block">
+					<h3 class="card-title"><%= job.title %></h3>
+					<small class="card-subtitle mb-2 text-muted">
+						<%= time_ago_in_words(job.created_at) + ' ago' %>
+					</small>
+					<p class="card-text">
+						<%= truncate(job.description) %>
+					</p>
+						<%= link_to "View job", job_path(job), class: 'btn btn-info btn-sm btn-block' %>
+				</div>
+			</div>
+		</div>
+	<% end %>
 </div>
