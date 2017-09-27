@@ -1,15 +1,32 @@
-<div class="container">
-
-	<p><%= @job.title %></p>
-	<p><%= @job.level %></p>
-	<p><%= @job.description %></p>
-	<p><%= @job.job_reference_id %></p>
-	<p><%= @job.city_locaiton %></p>
-	<p><%= @job.board_name %></p>
-	<p><%= @job.manager_name %></p>
-	<p><%= @job.contact_with_company %></p>
+<div class="container-fluid job-overview">
+	<div class="row ">
+		<div class="col">Job Title:</div>
+		<div class="col">City:</div>
+		<div class="col">Job Level:</div>
+		<div class="col">Board Name:</div>
+		<div class="col">Job Ref. ID:</div>
+		<div class="col">Contact with Comp.</div>
+		<div class="col">Manager:</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col"><%= @job.title %></div>
+		<div class="col"><%= @job.city_locaiton %></div>
+		<div class="col"><%= @job.level %></div>
+		<div class="col"><%= @job.board_name %></div>
+		<div class="col"><%= @job.job_reference_id %></div>
+		<div class="col"><%= @job.contact_with_company %></div>
+		<div class="col"><%= @job.manager_name %></div>
+	</div>
+<hr>
+	<div class="row">
+		<div class="form-group" data-spy='scroll' data-target="#job_description">
+			<h4>Description:</h4><br>
+			 <%= content_tag :p, @job.description %>
+		</div>
+	</div>
+		
+</div>
+	<%= link_to 'Back', jobs_path, class: 'btn btn-secondary' %>
 	<%= link_to 'Edit', edit_job_path(@job), class: 'btn btn-warning' %>
 	<%= link_to 'Delete', @job, method: :delete, data: {confirm: 'Are you sure you want to delete this job?'}, class: 'btn btn-danger' %>
-</div>
-
-<%= link_to 'Back', jobs_path %>
