@@ -11,14 +11,30 @@ User.create!(
 me = User.last
 puts "user #{me.first_name} created"
 
+puts ' 1 Company created'
+
+Company.create!(
+	hq_location: 'san mateo', # string
+	industry: 'Software', #string
+	num_of_employees: 5000, # int
+	maturity: 2, # int 0 non-specified, 1 start-up , 2 public, 3 private
+	valuation: 1000000, #int default 0.0
+	logo_url: 'https://placehold.it/400x400', # text, make a Pictures table as imagble
+	website: 'https://placehold.it/400x400', # string
+	notes: 'this is a test note from a seed', # text
+)
+
+co = Company.last
+
 10.times do |job|
 	Job.create!(
 		user_id: me.id,
+		company_id: co.id,
 		title: "Test #{job}",
 		level: 1,
 		description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae delectus, animi ipsam quod quo. Est ducimus rerum impedit nobis officia, illo voluptas earum aliquid nihil delectus, eaque corrupti. Nulla architecto sapiente nihil deserunt tempore animi, odio tenetur. Sequi maiores quibusdam quia saepe ullam autem amet adipisci aliquam suscipit. Dolores, nam!',
-		job_reference_id: "#{job}-2345",
-		city_locaiton: 'San Mateo, CA',
+		job_reference_code: "#{job}-2345",
+		city_location: 'San Mateo, CA',
 		board_name: 'TEST BOARD name',
 		manager_name: 'Some one',
 		contact_with_company: 'Jimmy'
@@ -27,27 +43,6 @@ end
 
 puts '10 Jobs created'
 
-job = Job.first
-
-Company.create!(
-	job_id: job.id,
-
-	hq_locaiton: 'san mateo', # string
-
-	industry: 'Software', #string
-
-	num_of_employees: 5000, # int
-
-	maturity: 2, # int 0 non-specified, 1 start-up , 2 public, 3 private
-
-	valuation: 1000000, #int default 0.0
-
-	logo_url: 'https://placehold.it/400x400', # text, make a Pictures table as imagble
-
-	website: 'https://placehold.it/400x400', # string
-
-	notes: 'this is a test note from a seed', # text
-)
 
 
 # # though process
