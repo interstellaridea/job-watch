@@ -1,6 +1,7 @@
 class Job < ApplicationRecord
 	belongs_to :user
-	has_one :company
+	belongs_to :company, optional: true,inverse_of: :jobs
+	
 	enum level: {
 		non_specified: 0,
 		junior_level: 1,
