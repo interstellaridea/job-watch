@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927230903) do
+ActiveRecord::Schema.define(version: 20170928225342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
-    t.string "hq_locaiton"
+    t.string "hq_location"
     t.string "industry"
     t.integer "num_of_employees"
     t.integer "maturity"
@@ -26,22 +26,22 @@ ActiveRecord::Schema.define(version: 20170927230903) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "job_id"
-    t.index ["job_id"], name: "index_companies_on_job_id"
   end
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.integer "level", default: 0
     t.string "description"
-    t.string "job_reference_id"
-    t.string "city_locaiton"
+    t.string "job_reference_code"
+    t.string "city_location"
     t.string "board_name"
     t.string "manager_name"
     t.string "contact_with_company"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_jobs_on_company_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -63,6 +63,6 @@ ActiveRecord::Schema.define(version: 20170927230903) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "companies", "jobs"
+  add_foreign_key "jobs", "companies"
   add_foreign_key "jobs", "users"
 end

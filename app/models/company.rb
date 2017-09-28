@@ -1,5 +1,6 @@
 class Company < ApplicationRecord
-	belongs_to :jobs, optional: true
+	has_many :jobs, inverse_of: :company
+	
 	enum maturity: {
 		non_specified: 0,
 		start_up: 1,

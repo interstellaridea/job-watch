@@ -1,7 +1,7 @@
 class CreateCompanies < ActiveRecord::Migration[5.1]
   def change
     create_table :companies do |t|
-			t.string	:hq_locaiton # string
+			t.string	:hq_location # string
 			t.string	:industry #string
 			t.integer :num_of_employees # int
 			t.integer :maturity # int 0 non-specified, 1 start-up , 2 public, 3 private
