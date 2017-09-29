@@ -6,11 +6,13 @@ class JobsController < ApplicationController
 
   def new
   	@job = Job.new
+    @job.build_company
   end
 
   def create
   	@job = Job.new(job_params)
   	@job.user_id = current_user.id
+    binding.pry
   	if @job.save
   		flash[:notice] = 'You created a job to track'
   		redirect_to jobs_path
@@ -44,11 +46,23 @@ class JobsController < ApplicationController
 				:title,
 				:level, # enum {non-specified: 0, jr : 1, midlevel: 2, sr: 3 }
 				:description,
-				:job_reference_id,
-				:city_locaiton,
+				:job_reference_code,
+				:city_location,
 				:board_name,
 				:manager_name,
-				:contact_with_company,)
+				:contact_with_company,
+        
+        company_attributes: [
+                              :hq_location,
+                              :industry,
+                              :num_of_employees,
+                              :maturity,
+                              :valuation,
+                              :logo_url,
+                              :website,
+                              :notes,
+                            ]
+    )
   	end
 
     def set_job
