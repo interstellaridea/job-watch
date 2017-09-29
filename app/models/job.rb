@@ -1,6 +1,8 @@
 class Job < ApplicationRecord
 	belongs_to :user
 	belongs_to :company, optional: true,inverse_of: :jobs
+	validates_presence_of :title, :description
+
 	accepts_nested_attributes_for :company
 
 	enum level: {

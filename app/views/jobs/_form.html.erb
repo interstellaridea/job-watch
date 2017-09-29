@@ -1,4 +1,10 @@
 <%= form_for @job, html: {class: 'new-job-form'} do |job| %>
+<% if @job.errors.any? %>
+		<% @job.errors.full_messages.each do |error| %>
+			<%= content_tag :div, error, class: 'alert alert-danger' %>
+		<% end %>
+	</div>
+<% end %>
 	<div class="row">
 		<div class="form-group col-md-6">
 			<%= job.text_field :title, placeholder: 'Job title', class: 'form-control' %>
