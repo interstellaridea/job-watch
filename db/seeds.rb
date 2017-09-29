@@ -14,6 +14,7 @@ puts "user #{me.first_name} created"
 puts ' 1 Company created'
 
 Company.create!(
+	name: 'ABC company'
 	hq_location: 'san mateo', # string
 	industry: 'Software', #string
 	num_of_employees: 5000, # int
