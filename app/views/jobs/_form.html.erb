@@ -1,5 +1,4 @@
-<div class="container">
-	<%= form_for(@job) do |job| %>
+<%= form_for @job, html: {class: 'new-job-form'} do |job| %>
 	<div class="row">
 		<div class="form-group col-md-6">
 			<%= job.text_field :title, placeholder: 'Job title', class: 'form-control' %>
@@ -10,7 +9,7 @@
 		</div>
 
 		<div class="form-group col-md-6">
-			<%= job.text_field :job_reference_id, placeholder: 'Reference ID', class: 'form-control' %>
+			<%= job.text_field :job_reference_code, placeholder: 'Reference ID', class: 'form-control' %>
 		</div>
 
 		<div class="form-group col-md-6">
@@ -18,27 +17,33 @@
 		</div>
 
 		<div class="form-group col-md-6">
-			<%= job.text_field :city_locaiton, placeholder: 'City Location', class: 'form-control' %>
+			<%= job.text_field :city_location, placeholder: 'City Location', class: 'form-control' %>
 		</div>
 
 		<div class="form-group col-md-6">
 			<%= job.text_field :board_name, placeholder: 'Board Name', class: 'form-control' %>
 		</div>
 
-		<div class="row col-md-12">
+		<div class="form-group col-md-12">
 			<div class="form-group col-md-8">
-				<%= generate_radio_boxes %>
+				<%= generate_radio_boxes :job, :level, Job.levels %>
 			</div>
 			
 			<div class="form-group col-md-8">
-				<%= job.text_area :description, rows: 15, class: 'form-control' %>
+				<%= job.text_area :description, placeholder: 'Description', class: 'form-control' %>
 			</div>
 		</div>
 
-		<div class="form-group col-md-4">
-			<%= job.submit 'Save', class: 'btn btn-primary btn-block' %>
+		<div class="row col-md-12">
+			<h2 class="col-md-12">Company:</h2>
+			<%= job.fields_for :company do |company_field| %>	
+				<%= render 'company_fields', company: company_field %>
+			<% end %>
+		</div>
+		<div class="btn-group">
+			<%= job.submit 'Save', class: 'btn btn-primary btn-space' %>
 			<%= link_to 'Cancel', jobs_path, class: 'btn btn-secondary' %>
 		</div>
+
 	</div>
-	<% end %>
-</div>
+<% end %>

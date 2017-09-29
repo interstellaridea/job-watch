@@ -17,7 +17,7 @@ Company.create!(
 	hq_location: 'san mateo', # string
 	industry: 'Software', #string
 	num_of_employees: 5000, # int
-	maturity: 2, # int 0 non-specified, 1 start-up , 2 public, 3 private
+	maturity: 0, # int 0 non-specified, 1 start-up , 2 public, 3 private
 	valuation: 1000000, #int default 0.0
 	logo_url: 'https://placehold.it/400x400', # text, make a Pictures table as imagble
 	website: 'https://placehold.it/400x400', # string

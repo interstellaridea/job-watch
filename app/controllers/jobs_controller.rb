@@ -12,7 +12,6 @@ class JobsController < ApplicationController
   def create
   	@job = Job.new(job_params)
   	@job.user_id = current_user.id
-    binding.pry
   	if @job.save
   		flash[:notice] = 'You created a job to track'
   		redirect_to jobs_path
@@ -53,6 +52,7 @@ class JobsController < ApplicationController
 				:contact_with_company,
         
         company_attributes: [
+                              :id,
                               :hq_location,
                               :industry,
                               :num_of_employees,

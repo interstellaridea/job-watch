@@ -3,11 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.new-job-container {
+	margin-top: 3em;
+}
+
 input[type=radio] {
 	margin-left: 15px;
 	margin-right: 5px;
 }
 
+.btn-space {
+  margin-right:0.5rem;
+}
 
 .row > a {
 	margin-bottom: 2em;

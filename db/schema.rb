@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20170928225342) do
     t.string "hq_location"
     t.string "industry"
     t.integer "num_of_employees"
-    t.integer "maturity"
+    t.integer "maturity", default: 0
     t.integer "valuation"
     t.text "logo_url"
     t.string "website"

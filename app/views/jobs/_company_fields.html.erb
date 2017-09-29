@@ -1,0 +1,30 @@
+<div class="form-group col-md-6">
+		<%= company.text_field :website, placeholder: 'Website', class: 'form-control' %>
+</div>
+
+<div class="form-group col-md-6">
+	<%= company.text_field :logo_url, placeholder: 'Logo url', class: 'form-control' %>
+</div>
+
+<div class="form-group col-md-6">
+	<%= company.text_field :industry, placeholder: 'Industry', class: 'form-control' %>
+</div>
+
+<div class="form-group col-md-6">
+	<%= company.text_field :hq_location, placeholder: 'HQ location', class: 'form-control' %>
+</div>
+
+<div class="form-group col-md-6">
+	<%= company.number_field :num_of_employees, placeholder: 'Number of Employees', class: 'form-control' %>
+</div>
+
+<div class="form-group col-md-6">
+	<%= company.number_field :valuation, placeholder: 'Valuation', class: 'form-control' %>
+</div>
+
+<div class="form-group col-md-12">
+	<%= generate_radio_boxes "#{company.object_name}", :maturity, Company.maturities %>
+	<div class="form-group col-md-8">
+		<%= company.text_area :notes, placeholder: 'Notes', class: 'form-control' %>
+	</div>
+</div>
