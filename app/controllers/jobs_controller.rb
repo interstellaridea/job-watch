@@ -61,6 +61,7 @@ class JobsController < ApplicationController
                               :logo_url,
                               :website,
                               :notes,
+                              :_destroy
                             ]
     )
   	end

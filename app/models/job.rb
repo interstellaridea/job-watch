@@ -4,6 +4,9 @@ class Job < ApplicationRecord
 	validates_presence_of :title, :description
 
 	accepts_nested_attributes_for :company
+																# allow_destroy: true,
+																# reject_if: lambda { |attrs| attrs['name'].blank?	}
+
 
 	enum level: {
 		non_specified: 0,

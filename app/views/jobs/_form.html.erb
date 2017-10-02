@@ -41,10 +41,12 @@
 		</div>
 
 		<div class="row col-md-12">
-			<h2 class="col-md-12">Company:</h2>
-			<%= job.fields_for :company do |company_field| %>	
-				<%= render 'company_fields', company: company_field %>
+			<%= job.fields_for :company do |company_field| %>
+				<% if @job.company.id %>
+					<%= render 'company_fields', job: company_field %>
+				<% end %>
 			<% end %>
+				<%= link_to_add_association 'Add Company', job, :company, form_name: 'job', class: 'btn btn-info' %>
 		</div>
 		<div class="btn-group">
 			<%= job.submit 'Save', class: 'btn btn-primary btn-space' %>
