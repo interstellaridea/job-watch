@@ -20,7 +20,6 @@
     check_to_hide_or_show_add_link();
 
   	function check_to_hide_or_show_add_link() {
-  		console.log($('.nested-fields').length);
   		if ($('.nested-fields').length == 1) {
   			$("a.add_fields").hide();
   		} else {
