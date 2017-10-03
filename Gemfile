@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
+
 gem 'rails', '~> 5.1.2'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
@@ -32,4 +36,3 @@ gem 'bootstrap', '= 4.0.0.alpha6'
 gem 'jquery-rails'
 gem 'devise', '~> 4.2'
 gem 'cocoon', '~> 1.2', '>= 1.2.10'
-
