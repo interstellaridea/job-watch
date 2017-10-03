@@ -1,4 +1,5 @@
 <div class="container new-job-container">
-	<h2>New Job:</h2>
-	<%= render 'form', job: @job %>
+<%= render 'shared/errors', obj: @job %>
+<h2>New Job:</h2>
+<%= render 'form', job: @job %>
 </div>

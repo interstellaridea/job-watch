@@ -1,11 +1,5 @@
 <%= form_for @job, html: {class: 'new-job-form'} do |job| %>
-<% if @job.errors.any? %>
-		<% @job.errors.full_messages.each do |error| %>
-			<%= content_tag :div, error, class: 'alert alert-danger' %>
-		<% end %>
-	</div>
-<% end %>
-	<div class="row">
+	<div id='job_categroy' class="row">
 		<div class="form-group col-md-6">
 			<%= job.text_field :title, placeholder: 'Job title', class: 'form-control' %>
 		</div>
@@ -40,14 +34,15 @@
 			</div>
 		</div>
 
-		<div class="row col-md-12">
-			<%= job.fields_for :company do |company_field| %>
-				<% if @job.company.id %>
-					<%= render 'company_fields', job: company_field %>
+		<div class="row col-md-12" id="items">
+				<%= job.fields_for :company do |company_field| %>
+					<% if @job.company.id %>
+						<%= render 'company_fields', job: company_field %>
+					<% end %>
 				<% end %>
-			<% end %>
 				<%= link_to_add_association 'Add Company', job, :company, form_name: 'job', class: 'btn btn-info' %>
 		</div>
+
 		<div class="btn-group">
 			<%= job.submit 'Save', class: 'btn btn-primary btn-space' %>
 			<%= link_to 'Cancel', jobs_path, class: 'btn btn-secondary' %>
