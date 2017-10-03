@@ -1,0 +1,37 @@
+<div class="col-md-6" id="job_card">
+	<div class="card">
+		<div class="card-block">
+			<h4 class="card-title"><%= @job.title %></h4><br>
+			<small>status:</small>
+			<%= @job.status.titleize %>
+		</div>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">
+				<span><strong>City: </strong><%= @job.city_location %></span>
+			</li>
+			<li class="list-group-item">
+				<span><strong>Level: </strong><%= @job.level.titleize %></span>
+			</li>
+			<li class="list-group-item">
+				<span><strong>Bord name: </strong><%= @job.board_name %></span>
+			</li>
+			<li class="list-group-item">
+				<span><strong>Reference Code: </strong><%= @job.job_reference_code %></span>
+			</li>
+			<li class="list-group-item">
+				<span><strong>Company Contact: </strong><%= @job.contact_with_company %></span>
+			</li>
+			<li class="list-group-item">
+				<span><strong>Manager: </strong><%= @job.manager_name %></span>
+			</li>
+		</ul>
+		<div class="card-block">
+			<p class="card-text">
+			<small>Description:</small><br>
+				<%= content_tag :p, @job.description %>
+			</p>
+			<hr>
+			<a href="#" class="card-link">Another link</a>
+		</div>
+	</div>
+</div>

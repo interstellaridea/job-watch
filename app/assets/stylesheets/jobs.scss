@@ -34,5 +34,19 @@ input[type=radio] {
 }
 
 .job-overview > .row {
+	margin-top: 10px 0 10px 0;
 	align-items: center; 
+}
+
+#company_card > .card {
+  max-width: 80%;
+}
+
+#job_card > .card {
+	max-width: 80%;
+}
+
+.card-img-top{
+  width:100%;
+  height:auto;
 }

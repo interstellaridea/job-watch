@@ -1,0 +1,37 @@
+<div class="col-md-6" id="company_card">
+	<div class="card">
+		<img class="card-img-top" src="<%= @job.company.logo_url %>" alt="Card image cap">
+		<div class="card-block">
+			<h4 class="card-title">
+				<%= @job.company.name %>
+			</h4>
+			<p class="card-text">
+				<%= @job.company.hq_location %>
+			</p>
+		</div>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">
+				<span><strong>Industry: </strong><%= @job.company.industry %></span>
+			</li>
+			<li class="list-group-item">
+				<span><strong>Number of Employees: </strong><%= @job.company.num_of_employees %></span>
+			</li>
+			<li class="list-group-item">
+				<span><strong>Valuation: </strong><%= @job.company.valuation %></span>
+			</li>
+			<li class="list-group-item">
+				<span><strong>Maturity: </strong><%= @job.company.maturity.titleize %></span>
+			</li>
+		</ul>
+			<div class="card-block">
+			<p class="card-text">
+				<small>Notes:</small><br>
+				<%= @job.company.notes %>
+				<hr>
+			</p>				
+		<% if @job.company.website %>
+				<%= link_to "Website", @job.company.website, class: 'btn btn-info btn-block' %>
+			</div>
+		<% end %>
+	</div>	
+</div>
