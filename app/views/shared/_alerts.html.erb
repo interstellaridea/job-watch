@@ -1,4 +1,11 @@
 <% alert = (flash[:notice] || flash[:error] || flash[:alert]) %>
 <% if alert %>
-  <p><%= alert %></p>
+	<div class="col-xs-8 col-xs-2-offset">
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<button class="close" type="button" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<%= alert %>
+		</div>
+	</div>
 <% end %> 
