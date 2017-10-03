@@ -7,6 +7,7 @@ class Job < ApplicationRecord
 																# allow_destroy: true,
 																# reject_if: lambda { |attrs| attrs['name'].blank?	}
 
+	enum status: { applied: 0, has_followed_up: 1 }
 
 	enum level: {
 		non_specified: 0,
