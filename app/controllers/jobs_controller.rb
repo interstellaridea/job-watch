@@ -53,6 +53,7 @@ class JobsController < ApplicationController
         
         company_attributes: [
                               :id,
+                              :name,
                               :hq_location,
                               :industry,
                               :num_of_employees,
