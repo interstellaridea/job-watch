@@ -1,16 +1,6 @@
-<div class="job-overview">
-	<div class="row">
-		<div class="col-md-4">
-			<%= link_to 'Back', jobs_path, class: 'btn btn-secondary' %>		
-			<%= link_to 'Edit', edit_job_path(@job), class: 'btn btn-warning' %>
-			<%= link_to 'Delete', @job, method: :delete, data: {confirm: 'Are you sure you want to delete this job?'}, class: 'btn btn-danger' %>
-		</div>
-	</div>
-
-	<div class="row">
-		<% if @job.company %>
-		<%= render 'company_show_card' %>
-		<% end %>
-		<%= render 'job_show_card' %>
-	</div>
+<div id="job-overview" class="row match-height">
+	<% if @job.company %>
+	<%= render 'company_show_card' %>
+	<% end %>
+	<%= render 'job_show_card' %>
 </div>

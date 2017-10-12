@@ -1,5 +1,13 @@
 // Limits cocoon js to only one nested field
   $(document).on('ready page:load turbolinks:load',function(){
+
+    // match-height plugin
+    $('#job-overview.row.match-height').each(function() {
+     $(this).find('.card').not('.card .card').matchHeight(); // Not .card .card prevents collapsible cards from taking height
+    });
+
+
+    // Cocoon plugin for limiting Add nested attribs for company to 1
     $('#items a.add_fields').
       data("association-insertion-method", 'append').
       data("association-insertion-node", '#items');

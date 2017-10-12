@@ -15,5 +15,6 @@
 //= require tether
 //= require bootstrap-sprockets
 //= require cocoon
+//= require lib/jquery_match_height
 //= require turbolinks
 //= require_tree .

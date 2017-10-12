@@ -20,33 +20,13 @@ input[type=radio] {
 	margin-bottom: 2em;
 }
 
+// for jobs#index
 .job-cards{
 	margin: 10px;
-
 }
 
-.job-cards > .card {
-	padding: 25px;
+//for jobs#show-id
+#job-overview {
+	margin-top: 30px;
 }
 
-.job-overview {
-	margin-top: 20px;
-}
-
-.job-overview > .row {
-	margin-top: 10px 0 10px 0;
-	align-items: center; 
-}
-
-#company_card > .card {
-  max-width: 80%;
-}
-
-#job_card > .card {
-	max-width: 80%;
-}
-
-.card-img-top{
-  width:100%;
-  height:auto;
-}

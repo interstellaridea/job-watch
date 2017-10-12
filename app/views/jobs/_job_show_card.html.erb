@@ -31,7 +31,11 @@
 				<%= content_tag :p, @job.description %>
 			</p>
 			<hr>
-			<a href="#" class="card-link">Another link</a>
+			<div class="row justify-content-around">
+				<%= link_to 'Back', jobs_path, class: 'btn btn-secondary' %>		
+				<%= link_to 'Edit', edit_job_path(@job), class: 'btn btn-warning' %>
+				<%= link_to 'Delete', @job, method: :delete, data: {confirm: 'Are you sure you want to delete this job?'}, class: 'btn btn-danger' %>
+			</div>
 		</div>
 	</div>
 </div>
