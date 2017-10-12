@@ -1,4 +1,7 @@
 <h1>Jobs being tracked:</h1>
+<div class="row col-md-12 justify-content-center">
+		<%= paginate @jobs %>
+</div>
 <div class="row">
 <%= link_to 'Add Job to track', new_job_path, class: 'btn btn-success btn-block' %>
 	<% @jobs.each do |job| %>
@@ -17,4 +20,7 @@
 			</div>
 		</div>
 	<% end %>
+		<div class="row col-md-12 justify-content-center">
+				<%= paginate @jobs %>
+		</div>
 </div>
